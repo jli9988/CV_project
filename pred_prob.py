@@ -21,9 +21,11 @@ filelist2 = sorted(glob.glob("~/*.png"))
 # load data
 for fname1, fname2 in zip(filelist1, filelist2):
     im = cv2.imread(fname1, 1)
-    im = np.array(im)/255.0
+    im = np.array(im)
+    im = im / np.amax(im)
     pose = cv2.imread(fname2, 1)
-    pose = np.array(pose)/255.0
+    pose = np.array(pose)
+    pose = pose / np.amax(pose)
     test_images.append(im)
     test_poses.append(pose)
 
@@ -73,7 +75,7 @@ def define_discriminator(image_shape):
     return model
 
 # define image shape
-image_shape = (256, 256, 3)
+image_shape = (512, 512, 3)
 # create the model
 model = define_discriminator(image_shape)
 
