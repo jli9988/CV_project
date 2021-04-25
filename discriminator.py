@@ -19,30 +19,33 @@ labels = []
 filelist1 = sorted(glob.glob("~/*.png"))
 filelist2 = sorted(glob.glob("~/*.png"))
 filelist3 = sorted(glob.glob("~/*.png"))
+filelist4 = sorted(glob.glob("~/*.png"))
 
 # load data
-for fname1, fname2 in zip(filelist1, filelist3):
+for fname1, fname2 in zip(filelist1, filelist2):
     im = cv2.imread(fname1, 1)
     im = np.array(im)
+    im = im / np.amax(im)
     pose = cv2.imread(fname2, 1)
     pose = np.array(pose)
+    pose = pose / np.amax(pose)
     train_images.append(im)
     train_poses.append(pose)
     lb = np.array([1, 0])
     labels.append(lb)
 
-for fname1, fname2 in zip(filelist2, filelist3):
+for fname1, fname2 in zip(filelist3, filelist4):
     im = cv2.imread(fname1, 1)
     im = np.array(im)
+    im = im / np.amax(im)
     pose = cv2.imread(fname2, 1)
     pose = np.array(pose)
+    pose = pose / np.amax(pose)
     train_images.append(im)
     train_poses.append(pose)
     lb = np.array([0, 1])
     labels.append(lb)
 
-train_images = np.asarray(train_images)/255.0
-train_poses = np.asarray(train_poses)/255.0
 
 # define the discriminator model
 def define_discriminator(image_shape):
@@ -91,9 +94,9 @@ def define_discriminator(image_shape):
 
 
 # define image shape
-image_shape = (256, 256, 3)
-batch_size = 1
-epochs = 140
+image_shape = (512, 512, 3)
+batch_size = 30
+epochs = 50
 # create the model
 model = define_discriminator(image_shape)
 # summarize the model
