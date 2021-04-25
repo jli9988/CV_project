@@ -15,10 +15,10 @@ import glob
 
 test_images = []
 test_poses = []
-filelist1 = sorted(glob.glob("/content/CV_project/test_data/real_image/*.png"))
-filelist2 = sorted(glob.glob("/content/CV_project/test_data/real_label/*.png"))
-filelist3 = sorted(glob.glob("/content/CV_project/test_data/syn_image/*.png"))
-filelist4 = sorted(glob.glob("/content/CV_project/test_data/syn_label/*.png"))
+filelist1 = sorted(glob.glob("/content/test_data/real_image/*.png"))
+filelist2 = sorted(glob.glob("/content/test_data/real_label/*.png"))
+filelist3 = sorted(glob.glob("/content/test_data/syn_image/*.png"))
+filelist4 = sorted(glob.glob("/content/test_data/syn_label/*.png"))
 
 # load data
 for fname1, fname2 in zip(filelist1, filelist2):
