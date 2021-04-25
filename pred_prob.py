@@ -15,8 +15,31 @@ import glob
 
 test_images = []
 test_poses = []
-filelist1 = sorted(glob.glob("~/*.png"))
-filelist2 = sorted(glob.glob("~/*.png"))
+filelist1 = sorted(glob.glob("/content/CV_project/test_data/real_image/*.png"))
+filelist2 = sorted(glob.glob("/content/CV_project/test_data/real_label/*.png"))
+filelist3 = sorted(glob.glob("/content/CV_project/test_data/syn_image/*.png"))
+filelist4 = sorted(glob.glob("/content/CV_project/test_data/syn_label/*.png"))
+
+# load data
+for fname1, fname2 in zip(filelist1, filelist2):
+    im = cv2.imread(fname1, 1)
+    im = np.array(im)
+    im = im / np.amax(im)
+    pose = cv2.imread(fname2, 1)
+    pose = np.array(pose)
+    pose = pose / np.amax(pose)
+    test_images.append(im)
+    test_poses.append(pose)
+
+for fname1, fname2 in zip(filelist3, filelist4):
+    im = cv2.imread(fname1, 1)
+    im = np.array(im)
+    im = im / np.amax(im)
+    pose = cv2.imread(fname2, 1)
+    pose = np.array(pose)
+    pose = pose / np.amax(pose)
+    test_images.append(im)
+    test_poses.append(pose)
 
 # load data
 for fname1, fname2 in zip(filelist1, filelist2):
