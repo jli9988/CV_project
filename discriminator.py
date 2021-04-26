@@ -16,9 +16,9 @@ import glob
 train_images = []
 train_poses = []
 labels = []
-filelist1 = sorted(glob.glob("/content/train_data/real_image/*.png"))
+filelist1 = sorted(glob.glob("/content/train_data/real_images/*.png"))
 filelist2 = sorted(glob.glob("/content/train_data/real_label/*.png"))
-filelist3 = sorted(glob.glob("/content/train_data/syn_image/*.png"))
+filelist3 = sorted(glob.glob("/content/train_data/syn_images/*.png"))
 filelist4 = sorted(glob.glob("/content/train_data/syn_label/*.png"))
 
 # load data
