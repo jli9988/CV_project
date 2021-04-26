@@ -95,7 +95,7 @@ image_shape = (512, 512, 3)
 model = define_discriminator(image_shape)
 
 # load pre-trained weights
-model.load_weights('~/model.h5')
+model.load_weights('/content/model.h5')
 
 pred_probs = []
 
