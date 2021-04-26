@@ -97,11 +97,11 @@ model = define_discriminator(image_shape)
 # load pre-trained weights
 model.load_weights('/content/model.h5')
 
-pred_probs = []
+pred_probs = model.predict([test_poses, test_images])
 
-for image, pose in zip(test_images, test_poses):
-    pred_out = model.predict([pose, image])
-    pred_probs.append(pred_out)
+# for image, pose in zip(test_images, test_poses):
+#     pred_out = model.predict([pose, image])
+#     pred_probs.append(pred_out)
 
 pred_probs = np.asarray(pred_probs)
 np.savetxt('pred_probs.txt', pred_probs)
