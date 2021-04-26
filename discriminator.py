@@ -45,7 +45,10 @@ for fname1, fname2 in zip(filelist3, filelist4):
     train_poses.append(pose)
     lb = np.array([0, 1])
     labels.append(lb)
-
+    
+train_images = np.asarray(train_images)
+train_poses = np.asarray(train_poses)
+labels = np.asarray(labels)
 
 # define the discriminator model
 def define_discriminator(image_shape):
