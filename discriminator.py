@@ -98,7 +98,7 @@ def define_discriminator(image_shape):
 
 # define image shape
 image_shape = (512, 512, 3)
-batch_size = 30
+batch_size = 1
 epochs = 50
 # create the model
 model = define_discriminator(image_shape)
