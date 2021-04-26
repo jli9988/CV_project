@@ -41,16 +41,8 @@ for fname1, fname2 in zip(filelist3, filelist4):
     test_images.append(im)
     test_poses.append(pose)
 
-# load data
-for fname1, fname2 in zip(filelist1, filelist2):
-    im = cv2.imread(fname1, 1)
-    im = np.array(im)
-    im = im / np.amax(im)
-    pose = cv2.imread(fname2, 1)
-    pose = np.array(pose)
-    pose = pose / np.amax(pose)
-    test_images.append(im)
-    test_poses.append(pose)
+test_images = np.asarray(train_images)
+test_poses = np.asarray(train_poses)
 
 # define the discriminator model
 def define_discriminator(image_shape):
